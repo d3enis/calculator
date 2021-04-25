@@ -1,3 +1,38 @@
 html {
     background-color: rgb(32, 37, 37);
 }
+
+#container {
+    width: 500px;
+    height: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: darkslategrey;
+}
+
+#calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-gap: 5px;
+    background-color: gray;
+}
+
+#calculator button {
+    height: 50px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.display {
+    font-size: 35px;
+    text-align: end;
+}
+
+.display {
+    background-color: white;
+    grid-column: 1/5;
+    grid-row: 1/3;
+}
