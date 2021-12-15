@@ -1,46 +1,59 @@
-function add(a, b) {
-  return a + b;
-}
-function subtract(a, b) {
-  return a - b;
-}
-function multiply(a, b) {
-  return a * b;
-}
-function divide(a, b) {
-  return a / b;
-}
+let currNumber = "";
+let fNumber = "";
+let sNumber = "";
+let operator = "";
+
+var operacije = {
+  add: function (a, b) {
+    return a + b;
+  },
+
+  subtract: function (a, b) {
+    return a - b;
+  },
+
+  multiply: function (a, b) {
+    return a * b;
+  },
+  divide: function (a, b) {
+    return a / b;
+  },
+};
+
 function operate(operator, a, b) {
   switch (operator) {
     case "+":
-      return add(a, b);
+      return operacije.add(a, b);
+
       break;
     case "-":
-      return subtract(a, b);
-      break;
+      return operacije.subtract(a, b);
+
     case "/":
-      return divide(a, b);
+      return operacije.divide(a, b);
       break;
     case "*":
-      return multiply(a, b);
+      return operacije.multiply(a, b);
       break;
   }
 }
 //variables for displaying number
-let currValue;
+let currValue = "";
 let displayValue = "";
 let display = document.querySelector(".display");
 //displaying number
 function showValue(btn) {
-  currValue = btn.toElement.innerText;
+  currValue = btn;
   displayValue += currValue;
-  display.innerText = displayValue;
+  display.innerText = displayValue.toString();
 }
 //adding listener for click
 let btnList = Array.from(calculator.querySelectorAll("button"));
 btnList.forEach((btn) => {
   btn.addEventListener("click", (btn) => {
-    showValue(btn);
+    btn1 = btn["path"]["0"]["innerHTML"].toString();
+    console.log(btn1);
+    showValue(btn1);
     selectAction();
   });
 });
@@ -65,10 +78,6 @@ function selectAction() {
 }
 
 //function for saving operands
-let currNumber = "";
-let fNumber = "";
-let sNumber = "";
-let operator = "";
 
 function operands() {
   currNumber += currValue;
